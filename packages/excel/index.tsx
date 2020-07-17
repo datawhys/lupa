@@ -53,19 +53,6 @@ export function ExcelDataset({ children }: ExcelDatasetProps) {
   );
 }
 
-/**
- * A <Dataset> that provides data from Excel
- */
-export function __ExcelDataset({ children }: ExcelDatasetProps) {
-  const [ready, setReady] = React.useState(false);
-
-  React.useEffect(() => {
-    Office.onReady(() => setReady(true));
-  }, [setReady]);
-
-  return ready && <ExcelDataset children={children} />;
-}
-
 export interface ExcelDatasetProps {
   children?: React.ReactNode;
 }
