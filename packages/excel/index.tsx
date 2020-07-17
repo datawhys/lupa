@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { Dataset, Feature, Row } from "@mondobrain/dataset";
+import { Dataset, Feature, Row } from "@lupa/lupa";
 
 //////////////////////////
 // COMPONENTS

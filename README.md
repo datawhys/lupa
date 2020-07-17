@@ -1,2 +1,2 @@
-# react-datasets
+# lupas
 Declarative datasets for React

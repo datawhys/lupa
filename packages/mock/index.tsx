@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { Dataset, Row, Feature } from "@mondobrain/dataset";
+import { Dataset, Row, Feature } from "@lupa/lupa";
 
 /**
  * A <Dataset> that provides mock data.

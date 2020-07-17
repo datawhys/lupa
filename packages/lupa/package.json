@@ -1,25 +1,22 @@
 {
-  "name": "@mondobrain/dataset-excel",
+  "name": "@lupa/lupa",
   "version": "0.0.0",
   "author": "Tyler Cosgrove <tyler@mondobrain.com>",
-  "description": "Use Excel data inside React",
+  "description": "Declarative datasets for React",
   "repository": {
     "type": "git",
-    "url": "git@github.com:mondobrain/react-datasets.git",
-    "directory": "packages/dataset-excel"
+    "url": "git@github.com:mondobrain/lupa.git",
+    "directory": "packages/lupa"
   },
   "license": "MIT",
   "main": "lib/index.js",
   "module": "esm/index.js",
   "types": "lib/index.d.ts",
-  "unpkg": "umd/react-dataset-excel.production.min.js",
+  "unpkg": "umd/lupa.production.min.js",
   "scripts": {
     "build": "rollup -c"
   },
-  "dependencies": {
-    "@mondobrain/dataset": "0.0.0",
-    "@types/office-js": "^1.0.117"
-  },
+  "dependencies": {},
   "peerDependencies": {
     "react": ">=16.8"
   },
@@ -27,8 +24,7 @@
   "keywords": [
     "react",
     "dataset",
-    "data",
-    "excel"
+    "data"
   ],
   "devDependencies": {
     "@rollup/plugin-commonjs": "^14.0.0",

@@ -1,18 +1,18 @@
 {
-  "name": "@mondobrain/dataset-mock",
+  "name": "@lupa/mock",
   "version": "0.0.0",
   "author": "Tyler Cosgrove <tyler@mondobrain.com>",
   "description": "Use Excel data inside React",
   "repository": {
     "type": "git",
-    "url": "git@github.com:mondobrain/react-datasets.git",
-    "directory": "packages/dataset-excel"
+    "url": "git@github.com:mondobrain/lupa.git",
+    "directory": "packages/mock"
   },
   "license": "MIT",
   "main": "lib/index.js",
   "module": "esm/index.js",
   "types": "lib/index.d.ts",
-  "unpkg": "umd/react-dataset-excel.production.min.js",
+  "unpkg": "umd/lupa-mock.production.min.js",
   "publishConfig": {
     "registry": "http://localhost:487"
   },
@@ -20,7 +20,7 @@
     "build": "rollup -c"
   },
   "dependencies": {
-    "@mondobrain/dataset": "0.0.0",
+    "@lupa/lupa": "0.0.0",
     "@types/office-js": "^1.0.117"
   },
   "peerDependencies": {
