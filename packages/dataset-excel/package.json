@@ -1,22 +1,25 @@
 {
-  "name": "@mondobrain/dataset",
+  "name": "@mondobrain/dataset-excel",
   "version": "0.0.0",
   "author": "Tyler Cosgrove <tyler@mondobrain.com>",
-  "description": "Declarative datasets for React",
+  "description": "Use Excel data inside React",
   "repository": {
     "type": "git",
     "url": "git@github.com:mondobrain/react-datasets.git",
-    "directory": "packages/dataset"
+    "directory": "packages/dataset-excel"
   },
   "license": "MIT",
   "main": "lib/index.js",
   "module": "esm/index.js",
   "types": "lib/index.d.ts",
-  "unpkg": "umd/react-dataset.production.min.js",
+  "unpkg": "umd/react-dataset-excel.production.min.js",
   "scripts": {
     "build": "rollup -c"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@mondobrain/dataset": "0.0.0",
+    "@types/office-js": "^1.0.117"
+  },
   "peerDependencies": {
     "react": ">=16.8"
   },
@@ -24,7 +27,8 @@
   "keywords": [
     "react",
     "dataset",
-    "data"
+    "data",
+    "excel"
   ],
   "devDependencies": {
     "@rollup/plugin-commonjs": "^14.0.0",
