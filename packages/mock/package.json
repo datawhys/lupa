@@ -2,7 +2,7 @@
   "name": "@lupa/mock",
   "version": "0.0.0",
   "author": "Tyler Cosgrove <tyler@mondobrain.com>",
-  "description": "Use Excel data inside React",
+  "description": "Use Mock/Static data inside React",
   "repository": {
     "type": "git",
     "url": "git@github.com:mondobrain/lupa.git",
