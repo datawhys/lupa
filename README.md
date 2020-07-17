@@ -29,4 +29,4 @@ This repository is a monorepo that we manage using [Lerna](https://github.com/le
 
 ## About
 
-`lupa` is developed and maintained by [MondoBrain](https://mondobrain.com) in addition to the [awesome community](https://github.com/monodbrain/lupa/graphs/contributors)!
+`lupa` is developed and maintained by [MondoBrain](https://mondobrain.com) in addition to the [awesome community](https://github.com/mondobrain/lupa/graphs/contributors)!
