@@ -1,0 +1,19 @@
+{
+  "name": "mondobrain-js",
+  "version": "0.0.0",
+  "private": true,
+  "author": "Tyler Cosgrove <tyler@mondobrain.com>",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "lerna": "^3.20.2",
+    "prettier": "^2.0.5"
+  },
+  "dependencies": {
+    "@types/react": "^16.9.43",
+    "@types/react-dom": "^16.9.8",
+    "react": "^16.13.1"
+  }
+}

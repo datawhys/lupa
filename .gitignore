@@ -1,0 +1,12 @@
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+lerna-debug.log
+
+
+node_modules/
+
+# Builds
+esm/
+lib/
+umd/
