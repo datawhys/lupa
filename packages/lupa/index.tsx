@@ -125,7 +125,7 @@ export type Shape = [number, number];
 // TYPE GUARDS
 //////////////////////////
 /**
- * Returns true if data is an array
+ * Returns true if data is an array of objects
  * @param data Data to check
  */
 export function dataIsRowArray(data: Data): data is Row[] {
@@ -136,7 +136,7 @@ export function dataIsRowArray(data: Data): data is Row[] {
 
 /**
  * Returns true if the data is an async function
- * @param data
+ * @param data Data to check against
  */
 export function dataIsAsyncMethod(data: Data): data is () => Promise<Row[]> {
   return typeof data === "function";
