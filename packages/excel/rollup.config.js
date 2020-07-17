@@ -41,8 +41,8 @@ const globals = [
       file: packageJson.unpkg.replace("production.min", "development"),
       format: "umd",
       sourcemap: !PRETTY,
-      globals: { react: "React", "@lupa/lupa": "ReactDataset" },
-      name: "ReactDatasetExcel",
+      globals: { react: "React", "@lupa/lupa": "Lupa" },
+      name: "LupaExcel",
     },
     external: ["react", "@lupa/lupa"],
     plugins: [
@@ -58,8 +58,8 @@ const globals = [
       file: packageJson.unpkg,
       format: "umd",
       sourcemap: !PRETTY,
-      globals: { react: "React", "@lupa/lupa": "ReactDataset" },
-      name: "ReactDatasetExcel",
+      globals: { react: "React", "@lupa/lupa": "Lupa" },
+      name: "LupaExcel",
     },
     external: ["react", "@lupa/lupa"],
     plugins: [

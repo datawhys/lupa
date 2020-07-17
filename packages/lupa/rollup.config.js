@@ -42,7 +42,7 @@ const globals = [
       format: "umd",
       sourcemap: !PRETTY,
       globals: { react: "React" },
-      name: "ReactDataset",
+      name: "Lupa",
     },
     external: ["react"],
     plugins: [
@@ -59,7 +59,7 @@ const globals = [
       format: "umd",
       sourcemap: !PRETTY,
       globals: { react: "React" },
-      name: "ReactDataset",
+      name: "Lupa",
     },
     external: ["react"],
     plugins: [
