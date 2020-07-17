@@ -13,9 +13,6 @@
   "module": "esm/index.js",
   "types": "lib/index.d.ts",
   "unpkg": "umd/lupa-mock.production.min.js",
-  "publishConfig": {
-    "registry": "http://localhost:487"
-  },
   "scripts": {
     "build": "rollup -c"
   },
@@ -43,6 +40,9 @@
     "rollup-plugin-terser": "^6.1.0",
     "rollup-plugin-typescript2": "^0.27.1",
     "typescript": "^3.9.7"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "gitHead": "349230cdb673412e820b73f939a284e95579660b"
 }
