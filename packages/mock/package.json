@@ -28,7 +28,7 @@
     "react",
     "dataset",
     "data",
-    "excel"
+    "mock"
   ],
   "devDependencies": {
     "@rollup/plugin-commonjs": "^14.0.0",
