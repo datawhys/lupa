@@ -7,6 +7,9 @@
   "workspaces": [
     "packages/*"
   ],
+  "scripts": {
+    "build": "lerna run --stream --concurrency 1 --sort build"
+  },
   "devDependencies": {
     "lerna": "^3.20.2",
     "prettier": "^2.0.5"

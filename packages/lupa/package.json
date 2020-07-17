@@ -16,7 +16,6 @@
   "scripts": {
     "build": "rollup -c"
   },
-  "dependencies": {},
   "peerDependencies": {
     "react": ">=16.8"
   },
@@ -36,5 +35,6 @@
     "rollup-plugin-terser": "^6.1.0",
     "rollup-plugin-typescript2": "^0.27.1",
     "typescript": "^3.9.7"
-  }
+  },
+  "gitHead": "349230cdb673412e820b73f939a284e95579660b"
 }
