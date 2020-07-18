@@ -1,0 +1,11 @@
+package ⋅ excel:
+  - package/excel/*
+  - package/excel/**/*
+
+package ⋅ lupa:
+  - package/lupa/*
+  - package/lupa/**/*
+
+package ⋅ mock:
+  - package/mock/*
+  - package/mock/**/*
