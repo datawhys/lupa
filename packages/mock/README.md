@@ -53,19 +53,12 @@ import React from 'react';
 import { useData, useFeatures, useShape } from '@lupa/lupa';
 
 export default function LupaInfo() {
-  const data = useData();
+  const data = useData(); // If using typescript you may want to specify as `Row[]` if you are inside the <MockDataset>
   const features = useFeatures();
   const shape = useShape();
 
   const onClick = React.useCallback(() => {
-    if (typeof data === 'function') {
-      (async () => {
-        const d = await data();
-        console.log(d);
-      })();
-    } else {
-      console.log(data);
-    }
+    console.log(data);
   }, [data]);
 
   return (
