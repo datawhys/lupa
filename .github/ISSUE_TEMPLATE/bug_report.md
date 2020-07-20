@@ -12,7 +12,7 @@ assignees: ''
 
 ### Affected Packages
 <!-- if all packages are affected just use `@ALL`. If unsure which package is having the issue list all the ones you are using. -->
- - `@lupa/<PACKAGE_NAME>`: `0.2.0`
+ - `@lupa/<PACKAGE_NAME>`
 
 
 ### Expected Behavior
