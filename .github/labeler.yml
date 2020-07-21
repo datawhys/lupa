@@ -1,11 +1,11 @@
 package ⋅ excel:
-  - package/excel/*
-  - package/excel/**/*
+  - packages/excel/*
+  - packages/excel/**/*
 
 package ⋅ lupa:
-  - package/lupa/*
-  - package/lupa/**/*
+  - packages/lupa/*
+  - packages/lupa/**/*
 
 package ⋅ mock:
-  - package/mock/*
-  - package/mock/**/*
+  - packages/mock/*
+  - packages/mock/**/*
