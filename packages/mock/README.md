@@ -23,14 +23,21 @@ npm install @lupa/mock @lupa/lupa
 
 ## Usage
 
-Wrap the top level of your React app in the `<MockDataset>` component;
+Wrap the top level of your React app in the `<MockDataset>` component. The `MockDataset` component requires an array of objects be passed to the `data` prop.
+
 ```jsx
 import { MockDataset } from '@lupa/mock';
+
+const data = [
+  { name: "Product A", price: 12.34, unitsSold: 56 },
+  { name: "Product B", price: 0.98, unitsSold: 7 },
+  { name: "Product C", price: 43.12, unitsSold: 89 },
+]
 
 
 export default function App() {
   return (
-    <MockDataset>
+    <MockDataset data={data}>
       <div>The rest of my app</div>
       <SomeChild />
     </MockDataset>
@@ -46,19 +53,12 @@ import React from 'react';
 import { useData, useFeatures, useShape } from '@lupa/lupa';
 
 export default function LupaInfo() {
-  const data = useData();
+  const data = useData(); // If using typescript you may want to specify as `Row[]` if you are inside the <MockDataset>
   const features = useFeatures();
   const shape = useShape();
 
   const onClick = React.useCallback(() => {
-    if (typeof data === 'function') {
-      (async () => {
-        const d = await data();
-        console.log(d);
-      })();
-    } else {
-      console.log(data);
-    }
+    console.log(data);
   }, [data]);
 
   return (
