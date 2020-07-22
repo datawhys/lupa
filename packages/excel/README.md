@@ -9,7 +9,7 @@
 <p align="center">
   <a href="https://www.npmjs.com/package/@lupa/excel"><img src="https://img.shields.io/npm/v/@lupa/excel?style=flat-square"></a>
   <a href="https://www.npmjs.com/package/@lupa/excel"><img src="https://img.shields.io/npm/dm/@lupa/excel?style=flat-square"></a>
-  <a href="https://travis-ci.com/mondobrain/@lupa/excel"><img src="https://img.shields.io/travis/com/mondobrain/@lupa/excel/master?style=flat-square"></a>
+  <a href="https://bundlephobia.com/result?p=@lupa/excel"><img src="https://img.shields.io/bundlephobia/minzip/@lupa/excel?style=flat-square"></a>
 </p>
 
 ## Installation

@@ -9,7 +9,7 @@
 <p align="center">
   <a href="https://www.npmjs.com/package/@lupa/lupa"><img src="https://img.shields.io/npm/v/@lupa/lupa?style=flat-square"></a>
   <a href="https://www.npmjs.com/package/@lupa/lupa"><img src="https://img.shields.io/npm/dm/@lupa/lupa?style=flat-square"></a>
-  <a href="https://travis-ci.com/mondobrain/@lupa/lupa"><img src="https://img.shields.io/travis/com/mondobrain/@lupa/lupa/master?style=flat-square"></a>
+  <a href="https://bundlephobia.com/result?p=@lupa/lupa"><img src="https://img.shields.io/bundlephobia/minzip/@lupa/lupa?style=flat-square"></a>
 </p>
 
 ## Docs

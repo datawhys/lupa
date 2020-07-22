@@ -9,7 +9,7 @@
 <p align="center">
   <a href="https://www.npmjs.com/package/@lupa/mock"><img src="https://img.shields.io/npm/v/@lupa/mock?style=flat-square"></a>
   <a href="https://www.npmjs.com/package/@lupa/mock"><img src="https://img.shields.io/npm/dm/@lupa/mock?style=flat-square"></a>
-  <a href="https://travis-ci.com/mondobrain/@lupa/mock"><img src="https://img.shields.io/travis/com/mondobrain/@lupa/mock/master?style=flat-square"></a>
+  <a href="https://bundlephobia.com/result?p=@lupa/mock"><img src="https://img.shields.io/bundlephobia/minzip/@lupa/mock?style=flat-square"></a>
 </p>
 
 ## Installation
