@@ -23,7 +23,14 @@ npm install @lupa/excel @lupa/lupa
 
 ## Usage
 
-Wrap the top level of your React app in the `<ExcelDataset>` component;
+In order for the `<ExcelDataset>` component to load, you need to have [Office.js][1] loaded. The easiest way to load [Office.js][1] is to include the following script tag in your page header
+
+```html
+<script src="https://appsforoffice.microsoft.com/lib/1/hosted/Office.js" type="text/javascript"></script>
+```
+
+With [Office.js][1] loaded, wrap the top level of your React app in the `<ExcelDataset>` component;
+
 ```jsx
 import { ExcelDataset } from '@lupa/excel';
 
@@ -50,15 +57,11 @@ export default function LupaInfo() {
   const features = useFeatures();
   const shape = useShape();
 
-  const onClick = React.useCallback(() => {
-    if (typeof data === 'function') {
-      (async () => {
-        const d = await data();
-        console.log(d);
-      })();
-    } else {
-      console.log(data);
-    }
+  const onClick = React.useCallback(async () => {
+    // We know that `data` is an async function because we're inside <ExcelDataset>
+    // Generic components should use `dataIsAsyncMethod` or `dataIsRowArray` from '@lupa/lupa'
+    const d = await data();
+    console.log(d);
   }, [data]);
 
   return (
@@ -80,3 +83,6 @@ export default function LupaInfo() {
   )
 }
 ```
+
+[//]: # (Link References)
+[1]: https://docs.microsoft.com/en-us/office/dev/add-ins/develop/understanding-the-javascript-api-for-office "OfficeJS"
