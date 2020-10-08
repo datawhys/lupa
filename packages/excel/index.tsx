@@ -40,7 +40,7 @@ export function ExcelDataset({ children }: ExcelDatasetProps) {
     [bounds]
   );
 
-  const height = 1000;
+  const height = bounds ? bounds.rows : 0;
   const width = features ? features.length : 0;
 
   return (
@@ -123,8 +123,11 @@ export async function getFeatures(
     const valueType = col.range.valueTypes[0][0];
 
     if (rangeIsContinuous(values, valueType)) {
-      const min = Math.min(...values);
-      const max = Math.max(...values);
+      const numbersOnly = values.filter(
+        (d) => d !== null && d !== ""
+      ) as number[];
+      const min = Math.min(...numbersOnly);
+      const max = Math.max(...numbersOnly);
 
       return {
         key: col.key,
@@ -154,12 +157,14 @@ export async function getFeatures(
  */
 // @ts-ignore
 export async function getData(context: Excel.RequestContext, bounds: Bounds) {
-  // bounds.columns.forEach((col) => col.range.load(['values', 'valueTypes']));
-
-  // await context.sync();
-
   const values = bounds.columns.reduce((acc: { [key: string]: any[] }, col) => {
-    acc[col.key] = ([] as any[]).concat(...col.range.values);
+    let cleanedValues = ([] as any[]).concat(...col.range.values);
+    const valueType = col.range.valueTypes[0][0];
+
+    if (rangeIsContinuous(cleanedValues, valueType)) {
+      cleanedValues = cleanedValues.map((d) => (d === "" ? null : d));
+    }
+    acc[col.key] = cleanedValues;
     return acc;
   }, {});
 
@@ -191,7 +196,7 @@ function rangeIsContinuous(
   // @ts-ignore
   values: any[],
   valueType: Excel.RangeValueType
-): values is number[] {
+): values is (number | null | "")[] {
   return (
     valueType === Excel.RangeValueType.double ||
     valueType === Excel.RangeValueType.integer
