@@ -178,6 +178,11 @@ export async function getData(context: Excel.RequestContext, bounds: Bounds) {
 
     if (rangeIsContinuous(cleanedValues, valueType)) {
       cleanedValues = cleanedValues.map((d) => (d === "" ? null : d));
+
+      const numberFormat = col.range.numberFormat[0][0];
+      if (isDateFormat(numberFormat)) {
+        cleanedValues = cleanedValues.map(numberToDate);
+      }
     }
     acc[col.key] = cleanedValues;
     return acc;
