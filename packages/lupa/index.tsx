@@ -107,13 +107,13 @@ export type Data = Row[] | (() => Promise<Row[]>);
  */
 export type Feature =
   | { key: string; type: "discrete"; modalities: string[] }
-  | { key: string; type: "continuous"; range: [number, number] };
+  | { key: string; type: "continuous"; range: [number, number] | [Date, Date] };
 
 /**
  * A Row can hold either discrete values or continuous values at any key
  */
 export interface Row {
-  [key: string]: string | number;
+  [key: string]: string | number | Date;
 }
 
 /**

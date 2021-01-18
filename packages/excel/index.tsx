@@ -3,6 +3,11 @@ import * as React from "react";
 import { Dataset, Feature, Row } from "@lupa/lupa";
 
 //////////////////////////
+// CONSTS
+//////////////////////////
+const DATE_CODES = ["yy", "m", "d", "h", "s", "AM/PM", "A/P"];
+
+//////////////////////////
 // COMPONENTS
 //////////////////////////
 
@@ -114,7 +119,9 @@ export async function getFeatures(
   context: Excel.RequestContext,
   bounds: Bounds
 ): Promise<Feature[]> {
-  bounds.columns.forEach((col) => col.range.load(["values", "valueTypes"]));
+  bounds.columns.forEach((col) =>
+    col.range.load(["values", "valueTypes", "numberFormat"])
+  );
 
   await context.sync();
 
@@ -126,13 +133,21 @@ export async function getFeatures(
       const numbersOnly = values.filter(
         (d) => d !== null && d !== ""
       ) as number[];
-      const min = Math.min(...numbersOnly);
-      const max = Math.max(...numbersOnly);
+
+      let range: [number, number] | [Date, Date] = [
+        Math.min(...numbersOnly),
+        Math.max(...numbersOnly),
+      ];
+
+      const numberFormat = col.range.numberFormat[0][0];
+      if (isDateFormat(numberFormat)) {
+        range = [numberToDate(range[0]), numberToDate(range[1])];
+      }
 
       return {
         key: col.key,
         type: "continuous",
-        range: [min, max],
+        range,
       };
     }
 
@@ -203,11 +218,41 @@ function rangeIsContinuous(
   );
 }
 
-// @ts-ignore
 function rangeIsDiscrete(
   // @ts-ignore
   values: any[],
   valueType: Excel.RangeValueType
 ): values is string[] {
   return valueType === Excel.RangeValueType.string;
+}
+
+//////////////////////////
+// UTILS
+//////////////////////////
+function isDateFormat(numberFormat: any) {
+  return DATE_CODES.some((d) => numberFormat.includes(d));
+}
+
+function numberToDate(num: number) {
+  const utcDays = Math.floor(num - 25568);
+  const utcValue = utcDays * 86400;
+  const dateInfo = new Date(utcValue * 1000);
+
+  const fractionalDay = num - Math.floor(num) + 0.0000001;
+
+  const totalSeconds = Math.floor(86400 * fractionalDay);
+  const seconds = totalSeconds % 60;
+  const remainingSeconds = totalSeconds - seconds;
+
+  const hours = Math.floor(remainingSeconds / (60 * 60));
+  const minutes = Math.floor(remainingSeconds / 60) % 60;
+
+  return new Date(
+    dateInfo.getFullYear(),
+    dateInfo.getMonth(),
+    dateInfo.getDate(),
+    hours,
+    minutes,
+    seconds
+  );
 }
