@@ -1,6 +1,6 @@
 {
   "name": "@lupa/lupa",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "author": "Tyler Cosgrove <tyler@mondobrain.com>",
   "description": "Declarative datasets for React",
   "repository": {
