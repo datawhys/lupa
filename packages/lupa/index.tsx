@@ -103,11 +103,23 @@ export function useShape(): Shape {
 export type Data = Row[] | (() => Promise<Row[]>);
 
 /**
+ * ContinuousFeature represents numeric/regressive data
+ */
+type ContinuousFeature = {
+  key: string;
+  type: "continuous";
+  range: [number, number] | [Date, Date];
+};
+
+/**
+ * DiscreteFeature represents class data
+ */
+type DiscreteFeature = { key: string; type: "discrete"; modalities: string[] };
+
+/**
  * A Feature can either be discrete or continuous
  */
-export type Feature =
-  | { key: string; type: "discrete"; modalities: string[] }
-  | { key: string; type: "continuous"; range: [number, number] | [Date, Date] };
+export type Feature = DiscreteFeature | ContinuousFeature;
 
 /**
  * A Row can hold either discrete values or continuous values at any key
@@ -140,4 +152,24 @@ export function dataIsRowArray(data: Data): data is Row[] {
  */
 export function dataIsAsyncMethod(data: Data): data is () => Promise<Row[]> {
   return typeof data === "function";
+}
+
+/**
+ * Returns true if the feature is continuous
+ * @param feature Feature to check
+ */
+export function featureIsContinuous(
+  feature: Feature
+): feature is ContinuousFeature {
+  return feature.type == "continuous";
+}
+
+/**
+ * Returns true if the feature is discrete
+ * @param feature Feature to check
+ */
+export function featureIsDiscrete(
+  feature: Feature
+): feature is DiscreteFeature {
+  return feature.type == "discrete";
 }
