@@ -163,7 +163,9 @@ export async function getFeatures(
       throw new Error("lupa: first row of data cannot contain empty values");
     }
 
-    throw new Error(`lupa: valueType ${valueType} not supported`);
+    throw new Error(
+      `lupa: cells with valueType ${valueType} are not supported`
+    );
   });
 
   return features;
