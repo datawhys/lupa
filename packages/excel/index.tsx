@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 import { Dataset, Feature, Row } from "@lupa/lupa";
 
@@ -15,16 +15,19 @@ const DATE_CODES = ["yy", "m", "d", "h", "s", "AM/PM", "A/P"];
  * Internal component. Handles actual creation of \<Dataset\>.
  */
 export function ExcelDataset({ children }: ExcelDatasetProps) {
-  // Ready Wrapper
-  const [ready, setReady] = React.useState(false);
-  React.useEffect(() => {
+  // Setup state
+  const [ready, setReady] = useState(false);
+  const [features, setFeatures] = useState<Feature[]>();
+  const [bounds, setBounds] = useState<Bounds>();
+
+  // Office JS events setup
+  useEffect(() => {
     Office.onReady(() => setReady(true));
   }, [setReady]);
 
-  const [features, setFeatures] = React.useState<Feature[]>();
-  const [bounds, setBounds] = React.useState<Bounds>();
 
-  React.useEffect(() => {
+  // Get bounds and features once ready
+  useEffect(() => {
     if (!ready) return;
     Excel.run(async (context) => {
       const sheet = context.workbook.worksheets.getActiveWorksheet();
@@ -37,7 +40,8 @@ export function ExcelDataset({ children }: ExcelDatasetProps) {
     });
   }, [ready, setFeatures, setBounds]);
 
-  const data = React.useCallback(
+  // Setup data async method
+  const data = useCallback(
     () =>
       Excel.run(async (context) =>
         bounds ? await getData(context, bounds) : [{}]
