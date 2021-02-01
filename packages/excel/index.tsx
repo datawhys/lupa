@@ -20,23 +20,29 @@ export function ExcelDataset({ children }: ExcelDatasetProps) {
   const [features, setFeatures] = useState<Feature[]>();
   const [bounds, setBounds] = useState<Bounds>();
 
+  // Setup async error helper
+  const throwError = useAsyncError();
+
   // Office JS events setup
   useEffect(() => {
     Office.onReady(() => setReady(true));
   }, [setReady]);
 
-
   // Get bounds and features once ready
   useEffect(() => {
     if (!ready) return;
     Excel.run(async (context) => {
-      const sheet = context.workbook.worksheets.getActiveWorksheet();
-      const bnds = await getBounds(context, sheet);
+      try {
+        const sheet = context.workbook.worksheets.getActiveWorksheet();
+        const bnds = await getBounds(context, sheet);
 
-      const features = await getFeatures(context, bnds);
+        const features = await getFeatures(context, bnds);
 
-      setBounds(bnds);
-      setFeatures(features);
+        setBounds(bnds);
+        setFeatures(features);
+      } catch (err) {
+        throwError(err);
+      }
     });
   }, [ready, setFeatures, setBounds]);
 
@@ -275,3 +281,15 @@ function numberToDate(num: number) {
     seconds
   );
 }
+
+const useAsyncError = () => {
+  const [, setError] = useState();
+  return useCallback(
+    (e) => {
+      setError(() => {
+        throw e;
+      });
+    },
+    [setError]
+  );
+};
