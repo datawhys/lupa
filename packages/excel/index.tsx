@@ -88,6 +88,10 @@ export async function getBounds(
 
   await context.sync();
 
+  if (usedRange.isNullObject) {
+    throw new Error("lupa: no data found in the selected worksheet");
+  }
+
   const columnRanges = [];
   for (let i = 0; i < usedRange.columnCount; i++) {
     const columnRange = usedRange.getColumn(i);
